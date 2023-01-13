@@ -3,30 +3,30 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     home: Scaffold(
-      appBar: AppBar(title: Text("My First App")), //Pre Build widgets
+      appBar: AppBar(
+          backgroundColor: Colors.brown[400],
+          title: const Text(
+            "My First App",
+            style: TextStyle(fontFamily: 'Roboto', fontStyle: FontStyle.italic),
+          )), //Pre Build widgets
       body: Center(
           child: ElevatedButton(
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.resolveWith((states) {
-          return Colors.black;
+          return Colors.brown[400];
         })),
+        onLongPress: () => {print("I am long pressed")},
         onPressed: () => {print("I am Pressed")},
-        child: Text("Press Me !"),
-      )
-          // child: Text(
-          //   "Hellooo Duniyaaa",
-          //   textAlign: TextAlign.left,
-          //   style: TextStyle(
-          //       color: Colors.red[700],
-          //       fontWeight: FontWeight.w800,
-          //       fontSize: 30,
-          //       fontFamily: 'Roboto-Italic',
-          //       fontStyle: FontStyle.italic),
-          // ),
-          ),
+        // onHover: () => {Color},
+        child: const Text("Press Me !"),
+      )),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.brown[400],
         onPressed: () => {},
-        child: Text("+"),
+        child: const Text(
+          "+",
+          style: TextStyle(fontSize: 30),
+        ),
       ),
     ),
   ));
