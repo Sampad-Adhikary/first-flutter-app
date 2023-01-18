@@ -1,41 +1,50 @@
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, prefer_const_literals_to_create_immutables
+
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-          backgroundColor: Colors.brown[400],
-          title: const Text(
-            "My First App",
-            style: TextStyle(fontFamily: 'Roboto', fontStyle: FontStyle.italic),
-          )), //Pre Build widgets
-      body: Center(
-          child: Container(
-              height: 50,
-              width: 200,
-              padding: EdgeInsets.all(5),
-              margin: EdgeInsets.all(80),
-              child: ElevatedButton(
-                style: ButtonStyle(backgroundColor:
-                    MaterialStateProperty.resolveWith((states) {
-                  return Colors.brown[400];
-                })),
-                onLongPress: () => {print("I am long pressed")},
-                onPressed: () => {print("I am Pressed")},
-                // onHover: () => {Color},
-                child: const Text("Press Me !"),
-              ))),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.brown[400],
-        onPressed: () => {},
-        child: const Text(
-          "+",
-          style: TextStyle(fontSize: 30),
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Login with your mobile',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  Stack(
+                    children: [
+                      Container(
+                        width: 120,
+                        // height: 3,
+                        margin: EdgeInsets.all(10),
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.grey,
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Text('0123456789'),
+                      ),
+                      Container(
+                          padding: EdgeInsets.all(5), child: Icon(Icons.alarm))
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
+      debugShowCheckedModeBanner: false,
     ),
-  ));
+  );
 }
-
-//Android :- Material Theme
-//iOS :- Coopertino theme
